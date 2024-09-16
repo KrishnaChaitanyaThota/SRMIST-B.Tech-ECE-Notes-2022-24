@@ -41,30 +41,35 @@ const Contribute = () => {
         };
 
         return (
-            <ContributorCard
-                onClick={handleNavigate}
-            >
-                <Tooltip title={`Visit ${username}'s Profile, contributions made: ${contributions}`}>
-                    <Box
-                        display='flex'
-                        alignItems='center'
-                        justifyContent='center'
-                        flexDirection={'column'}
-                        width='100%'
-                        height='100%'
+        <ContributorCard
+            onClick={handleNavigate}
+        >
+            <Tooltip title={`Visit ${username}'s Profile, contributions made: ${contributions}`}>
+                <Box
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='center'
+                    flexDirection='column'
+                    width='100%'
+                    height='100%'
+                >
+                    <Avatar src={avatar} alt={username} variant='rounded' />
+                    <Typography 
+                        variant='caption' 
+                        sx={{ 
+                            maxWidth: '100%', 
+                            textOverflow: 'ellipsis', 
+                            overflow: 'hidden', 
+                            whiteSpace: 'nowrap'
+                        }}
                     >
-                        <Avatar
-                            src={avatar}
-                            alt={username}
-                            variant='rounded'
-                        />
-                        <Typography variant='caption'>{username}</Typography>
-                    </Box>
-                </Tooltip>
-            </ContributorCard>
-        )
-    }
-
+                        {username}
+                    </Typography>
+                </Box>
+            </Tooltip>
+        </ContributorCard>
+    );
+};
     return (
         <Page>
             <Content>
@@ -99,7 +104,8 @@ const Contribute = () => {
 const Page = styled(Box)({
     position: 'relative',
     width: 'min(100%, 800px)',
-    height: '100vh',
+    height: 'fit-content',
+    padding: '2em 0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
